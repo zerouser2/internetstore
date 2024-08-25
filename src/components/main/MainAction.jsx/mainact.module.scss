@@ -1,0 +1,66 @@
+.mainact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin: 25px 0 0 20px;
+    border-radius: 5px;
+    background-color: #f8f3e7;
+    height: 100%;
+    max-height: 500px;
+
+    .catalog {
+        margin-bottom: 20px;
+        cursor: pointer;
+
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            transition: background-color 0.3s, color 0.3s;
+            width: 120%;
+            color: #000000;
+
+            &:hover {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+    }
+
+    .products {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+
+        .nav {
+            padding: 10px 20px;
+            border: 1px solid #333;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+
+
+            &:hover {
+                background-color: #333;
+                color: #fff;
+            }
+        }
+
+        .nav.active {
+            background-color: #333;
+            color: #fff;
+        }
+    }
+}
+
+.bigTitle {
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    font-weight: 700;
+    white-space: nowrap;
+    margin-bottom: 15px;
+}

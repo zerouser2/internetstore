@@ -1,0 +1,33 @@
+.basketContainet {
+    margin: 50px;
+}
+
+.prod {
+    display: flex;
+    align-items: center;
+    width: 60%;
+    max-width: 800px;
+    padding: 35px;
+    border: 2px solid;
+
+    img {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+        mix-blend-mode: multiply;
+    }
+}
+
+.info {
+
+    div {
+
+        line-height: 1.5em;
+        width: 45%;
+    }
+
+    p {
+        font-weight: 1000;
+        font-size: 20px;
+    }
+}

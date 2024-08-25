@@ -1,0 +1,142 @@
+.profileBlock {
+    display: flex;
+    margin: 20px ;
+}
+
+.leftPiece {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 350px;
+    height: 500px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
+    border: 2px solid #c2c1c1;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    border-bottom: 2px solid #bababa;
+    width: 100%;
+}
+
+.blackFon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    
+    img {
+        width: 150px;
+        height: 150px;
+        
+    }
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.balance {
+    font-weight: 500;
+    font-size: 24px;
+}
+
+.rightPiece {
+    background-color: #fff;
+    width: 100%;
+    margin-left: 3%;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    border: 2px solid #c2c1c1;
+
+}
+
+.navs {
+    display: flex;
+    justify-content: space-between;
+    
+    div {
+        padding: 10px 5%;
+        width: 100%;
+        text-align: center;
+        white-space: nowrap;
+        background-color: #fff;
+
+        transition: all 0.2s ease-out;
+        border-bottom: 2px solid #979696;
+
+
+    }
+
+    
+}
+
+.contentContainer {
+    .content {
+        display: none;
+        padding: 20px;
+        background-color: #fff;
+
+        &.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+    }
+}
+
+.name {
+    font-weight: 700;
+    font-size: 40px;
+    color: #018a08;
+}
+
+.bal {
+    font-size: 28px;
+    font-weight: 500;
+
+    a {
+        font-size: 15px;
+        color: #ff0000;
+        cursor: pointer;
+    }
+}
+
+.desc {
+    font-size: 25px;
+}
+
+
+.settingBlock {
+
+    margin-top: 240px;
+}
+
+.settings {
+    background-color: #018a08;
+    cursor: pointer;
+    padding: 10px 35px;
+    border-radius: 15px;
+    color: #fff;
+    transition: all 0.2s ease-in-out;
+}
+
+.settings:hover {
+    background-color: #02b40b;
+}
