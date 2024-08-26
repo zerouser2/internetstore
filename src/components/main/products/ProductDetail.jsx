@@ -29,7 +29,6 @@ function ProductDetail() {
     if (!product) return <p>Product not found</p>;
     if (error) return <p>Error: {error.message}</p>;
 
-
     return (
         <>
             <div className={styles.containerProduct}>
@@ -51,7 +50,7 @@ function ProductDetail() {
                                             setSumma(product.price * newCount);
                                             return newCount;
                                         }
-                                        return prevCount; // Если count равен 1, просто вернём текущее значение
+                                        return prevCount; 
                                     });
                                 }
                             }}>

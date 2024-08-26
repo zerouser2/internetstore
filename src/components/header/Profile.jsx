@@ -29,7 +29,7 @@ function Profile({ user, login }) {
                 </div>
                 <div>{login}</div>
             </div>
-            <div className={`${styles.navs} ${isActive ? styles.active : ''}`}>
+            <div className={`${styles.navs} ${isActive ? styles.active : ''}`} onClick={() => setActive(!isActive)}>
                 <Link to={`/profile/${auth.currentUser.displayName.toLowerCase()}`}>Профиль</Link>
                 <Link to='/'>Главная</Link>
                 <Link to='/basket'>Корзина</Link>
