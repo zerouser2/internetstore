@@ -33,7 +33,6 @@ function Profile({ user, login }) {
                 <Link to={`/profile/${auth.currentUser.displayName.toLowerCase()}`}>Профиль</Link>
                 <Link to='/'>Главная</Link>
                 <Link to='/basket'>Корзина</Link>
-                <a>Баланс</a>
                 <a onClick={handleLogout}>Выход</a>
             </div>
         </>

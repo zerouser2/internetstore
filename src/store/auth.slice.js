@@ -11,7 +11,8 @@ const Auth = createSlice({
         logDatas: {
             email: '',
             password: ''
-        }
+        },
+        description: ''
     },
     reducers: {
         setRegAuthDatas(state, action) {
@@ -19,12 +20,15 @@ const Auth = createSlice({
         },
         setLogAuthDatas(state, action) {
             state.logDatas = action.payload
+        },
+        setDescription(state, action) {
+            state.description = action.payload
         }
     },
 })
 
 
-export const { setRegAuthDatas, setLogAuthDatas } = Auth.actions
+export const { setRegAuthDatas, setLogAuthDatas, setDescription } = Auth.actions
 
 
 export default Auth.reducer

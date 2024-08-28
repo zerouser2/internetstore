@@ -13,16 +13,15 @@ function Header() {
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-          setUser(user);
-          setLoading(false);
+            setUser(user);
+            setLoading(false);
         });
-    
+
         return () => unsubscribe();
-      }, []);
+    }, []);
 
-    console.log(user)
 
-  
+
 
     return (
         <div>
@@ -42,7 +41,7 @@ function Header() {
                             {loading ? (
                                 <div>Loading...</div>
                             ) : (
-                                user ? <Profile user={user} login={user.displayName}/> : <Link to='/sign'>Sign Up/ Sign In</Link>
+                                user ? <Profile user={user} login={user.displayName} /> : <Link to='/sign'>Sign Up/ Sign In</Link>
                             )}
                         </Suspense>
                     </div>

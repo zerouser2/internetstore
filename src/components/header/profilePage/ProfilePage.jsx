@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { auth } from '../../firebase/firebase';
 import styles from './profpage.module.scss';
 import userPhoto from '../../userPhoto.png'
+import { Link } from 'react-router-dom';
+import { sendEmailVerification } from 'firebase/auth';
 
 function ProfilePage() {
     const [currentUser, setCurrentUser] = useState(null);
@@ -11,15 +13,23 @@ function ProfilePage() {
         month: '',
         year: ''
     })
+    
+    const [isVerify, setVerify] = useState(false)
 
     const [activeContent, setActiveContent] = useState('content1')
+    const [desc, setDesc] = useState('')
 
 
     useEffect(() => {
+        const savedDescription = localStorage.getItem('description');
+        if (savedDescription) {
+            setDesc(savedDescription);
+        }
+
         const unsubscribe = auth.onAuthStateChanged((user) => {
             if (user) {
                 setCurrentUser(user);
-                console.log(currentUser)
+
                 const str = user.metadata.creationTime;
                 const sliced = str.slice(5);
                 const [day, monthStr, year] = sliced.split(" ");
@@ -34,11 +44,31 @@ function ProfilePage() {
                 setCreateTime({ day, month, year });
 
             }
+
+            if (user.emailVerified) {
+                setVerify(true)
+            }
             setLoading(false);
+
         });
 
         return () => unsubscribe();
     }, []);
+
+    function verifyEmail() {
+        if (!currentUser.emailVerified) {
+            sendEmailVerification(currentUser)
+                .then(() => {
+                    console.log('Письмо для подтверждения отправлено на текущий email');
+                })
+                .catch((error) => {
+                    console.error('Ошибка при отправке письма для подтверждения:', error);
+                });
+        } else {
+            console.log('DA')
+        }
+    }
+
 
     if (loading) {
         return <div>Loading...</div>;
@@ -57,9 +87,11 @@ function ProfilePage() {
                     <div className={styles.login}>{currentUser?.displayName || 'User'}</div>
                     <div>
                         <div className={styles.balance}>Баланс: 0$</div>
-                        <div>Email: {auth.currentUser.email}</div>
+                        <div>Email: {auth.currentUser.email} </div>
                         <div>Аккаунт был создан: {`${createTime.day}.${createTime.month}.${createTime.year}`}</div>
-
+                        <div className={styles.emailVerify}>
+                            {isVerify ? <p>Email подтвержден</p> : <a onClick={verifyEmail}>Подтвердить email</a>}
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,30 +115,17 @@ function ProfilePage() {
                             <div className={styles.desc}>Описание профиля: </div>
                             <br></br>
                             <div>
-                                У вас нет описания.
+                                {desc ? desc : 'У вас нет описания'}
                             </div>
 
                         </div>
 
                         <div className={styles.settingBlock}>
-                            <a className={styles.settings}>Настройки профиля</a>
-
-                        </div>
-                    </div>
-                    {/* 
-                    <div className={`${styles.content} ${activeContent === 'content2' ? styles.active : ''}`} id="content2">
-                        <div>
-                            <div className={styles.bal}>Ваш баланс: 0$  <a>Пополнить?</a></div>
+                            <Link to={`/settings`} className={styles.settings}>Настройки профиля</Link>
                         </div>
                     </div>
 
-                    <div className={`${styles.content} ${activeContent === 'content3' ? styles.active : ''}`} id="content3">
-                        Содержимое для Контент 3
-                    </div> */}
 
-                    <div className={`${styles.content} ${activeContent === 'content4' ? styles.active : ''}`} id="content4">
-                        Содержимое для Контент 4
-                    </div>
 
                 </div>
 

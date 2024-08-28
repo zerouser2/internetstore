@@ -58,6 +58,17 @@
     font-size: 24px;
 }
 
+.emailVerify {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+
+    a {
+        cursor: pointer;
+    }
+}
+
 .rightPiece {
     background-color: #fff;
     width: 100%;

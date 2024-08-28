@@ -6,6 +6,7 @@ import ProductDetail from "./components/main/products/ProductDetail";
 import Header from "./components/header/Header";
 import ProfilePage from "./components/header/profilePage/ProfilePage";
 import Basket from "./components/header/basket/Basket";
+import EditProfile from "./components/header/profilePage/EditProfile";
 
 function App() {
   const router = createBrowserRouter([
@@ -41,6 +42,15 @@ function App() {
         <>
           <Header />
           <Basket />
+        </>
+      ),
+    },
+    {
+      path: "settings",
+      element: (
+        <>
+          <Header />
+          <EditProfile />
         </>
       ),
     },
