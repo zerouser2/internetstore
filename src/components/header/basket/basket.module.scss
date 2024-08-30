@@ -1,6 +1,6 @@
 .basketContainet {
     display: flex;
-    margin: 50px;
+    margin: 10px;
 }
 
 .leftPiece {
@@ -170,6 +170,7 @@
 @media (max-width: 768px) {
     .basketContainet {
         display: block;
+        margin: 10px;
     }
 
     .leftPiece {
