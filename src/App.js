@@ -9,6 +9,8 @@ import Basket from "./components/header/basket/Basket";
 import EditProfile from "./components/header/profilePage/EditProfile";
 
 function App() {
+  const basename = '/internetstore'
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -55,13 +57,13 @@ function App() {
       ),
     },
     {
-      basename: '/internetstore'
+      basename: basename
     }
   ]);
 
   return (
     <div className="App">
-      <RouterProvider router={router} />
+      <RouterProvider router={router} basename={basename}/>
     </div>
   );
 }
