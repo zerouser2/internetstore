@@ -1,5 +1,4 @@
 .productBlock {
-    width: 80%;
     margin: 20px;
 }
 
@@ -20,6 +19,7 @@
 .products {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
     width: 100%;
     gap: 30px;
     white-space: nowrap;
@@ -37,7 +37,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background-color: #fff;
-
+    flex: 1 1 calc(33.333% - 20px);
 }
 
 .info {
@@ -73,24 +73,32 @@
     justify-content: space-around;
     margin-top: 10px;
 
-    button {
-        border: none;
-        background-color: #7a7a7a;
+    a {
         cursor: pointer;
         border-radius: 16px;
-        color: #ffffff;
         padding: 10px 10%;
     }
 }
 
 .buy {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 0 20px;
     opacity: 1;
+    background-color: #04b70a;
     transition: all 0.5s ease;
+    border: none;
+    color: #fff;
 }
 
 .buy:hover {
     opacity: 0.6;
+}
+
+.linkTitle {
+    text-decoration: none;
+    color: rgb(95, 92, 92);
 }
 
 
@@ -98,8 +106,22 @@
     padding: 5px 10px;
     opacity: 1;
     transition: all 0.5s ease;
+    background-color: #fff;
+    color: #04b70a;
+    border: 1px solid #04b70a;
 }
 
 .cart:hover {
     opacity: 0.6;
+}
+
+
+@media (max-width: 950px) and (min-width: 768px) {
+    .buttons {
+
+        a {
+            padding: 10px 5%;
+
+        }
+    }
 }

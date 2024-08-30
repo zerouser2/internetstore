@@ -140,8 +140,6 @@ function Basket() {
         <div className={styles.basketContainet}>
             <div className={styles.leftPiece}>
                 <div className={styles.title}>Ваша корзина товаров</div>
-
-
                 {
                     basket.map((elem, index) => (
                         <div className={styles.prod} key={index}>

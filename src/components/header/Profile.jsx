@@ -14,25 +14,27 @@ function Profile({ user, login }) {
         auth.signOut()
             .then(() => {
                 console.log('User signed out');
-                navigate('/sign'); // Перенаправление на страницу входа/регистрации после выхода
+                navigate('/sign'); 
             })
             .catch((error) => {
                 console.error('Sign out error', error);
             });
     };
-    // console.log(auth.currentUser)
+
     return (
         <>
             <div className={styles.profileBlock} onClick={() => setActive(!isActive)}>
                 <div className={styles.avatar}>
                     <img src={userPhoto} />
                 </div>
-                <div>{login}</div>
+
             </div>
             <div className={`${styles.navs} ${isActive ? styles.active : ''}`} onClick={() => setActive(!isActive)}>
+                <Link to={`/profile/${auth.currentUser.displayName.toLowerCase()}`}>{login}</Link>
                 <Link to={`/profile/${auth.currentUser.displayName.toLowerCase()}`}>Профиль</Link>
                 <Link to='/'>Главная</Link>
                 <Link to='/basket'>Корзина</Link>
+                <Link to='/settings'>Настройки</Link>
                 <a onClick={handleLogout}>Выход</a>
             </div>
         </>

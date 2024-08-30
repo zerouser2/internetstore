@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts, setActiveModalBuy, setActiveModalCart, setCurrentItems, showAllProducts } from '../../../store/products.slice';
 import styles from './product.module.scss';
 import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
 
 /*zGNc9wYiQhTDeMbrxdF5gYNa*/
 
 function Product() {
     const dispatch = useDispatch();
-
+    const isDesktop = useMediaQuery({ minWidth: 992 });
     const { products, status, error, currentItems } = useSelector((state) => state);
 
     useEffect(() => {
@@ -39,12 +40,14 @@ function Product() {
             {products.status === 'loading' && <h2>Loading...</h2>}
             {error && <p>Error: {products.error.message}</p>}
 
+            
+
             {products.status === 'succeeded' && (
                 <>
                     {products.currentItems.length === products.products.length ? (
-                        <p className={styles.allProduct}>All products</p>
+                        <p className={styles.allProduct}>Все продукты</p>
                     ) : (
-                        <p className={styles.allProduct}>Product category</p>
+                        <p className={styles.allProduct}>Категория продукта</p>
                     )}
 
                     <div className={styles.products}>
@@ -52,7 +55,7 @@ function Product() {
 
                             <div className={styles.product} key={product.id}>
 
-                                <Link to={`/product/${product.id}`}>
+                                <Link to={`/product/${product.id}`} className={styles.linkTitle}>
                                     <div className={styles.title}>{truncateTitle(product.title, 22)}</div>
                                 </Link>
 
@@ -65,11 +68,11 @@ function Product() {
                                 </div>
 
                                 <div className={styles.buttons}>
-                                    <button className={styles.buy} onClick={() => dispatch(setActiveModalBuy({
+                                    <a className={styles.buy} onClick={() => dispatch(setActiveModalBuy({
                                         product,
                                         isActive: true,
-                                    }))}>Buy</button>
-                                    <button className={styles.cart} onClick={() => dispatch(setActiveModalCart({isActive: true, product: product}))}>Add to cart</button>
+                                    }))}>Купить</a>
+                                    <a className={styles.cart} onClick={() => dispatch(setActiveModalCart({ isActive: true, product: product }))}>В корзину</a>
                                 </div>
 
                             </div>

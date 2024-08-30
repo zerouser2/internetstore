@@ -20,9 +20,6 @@ function Header() {
         return () => unsubscribe();
     }, []);
 
-
-
-
     return (
         <div>
             <div className={styles.header}>

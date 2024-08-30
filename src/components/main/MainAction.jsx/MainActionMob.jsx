@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import styles from './mainactmob.module.scss'
+import { useState } from 'react';
 import { setCurrentItems, showAllProducts } from '../../../store/products.slice';
-import styles from './mainact.module.scss';
 
-function MainActions() {
+function MainActionMob() {
     const [activeCategory, setActiveCategory] = useState('');
     const products = useSelector(state => state);
     const dispatch = useDispatch();
@@ -45,9 +45,9 @@ function MainActions() {
 
             <div className={styles.products}>
                 {categories.map((el) => (
-                    <div 
-                        key={el.key} 
-                        onClick={() => chooseCategory(el)} 
+                    <div
+                        key={el.key}
+                        onClick={() => chooseCategory(el)}
                         className={`${styles.nav} ${activeCategory === el.name ? styles.active : ''}`}
                     >
                         {el.name}
@@ -58,4 +58,4 @@ function MainActions() {
     );
 }
 
-export default MainActions;
+export default MainActionMob;

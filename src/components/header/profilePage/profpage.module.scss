@@ -151,3 +151,9 @@
 .settings:hover {
     background-color: #02b40b;
 }
+
+@media (max-width: 950px) {
+    .leftPiece {
+        width: 80%;
+    }
+}

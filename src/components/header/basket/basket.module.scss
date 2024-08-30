@@ -30,7 +30,7 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: 100%;
+    width: 95%;
     max-width: 1000px;
     padding: 25px;
     margin-bottom: 20px;
@@ -96,7 +96,7 @@
     display: flex;
     align-items: center;
     width: 150px;
-    justify-content: space-between;
+    justify-content: space-around;
 
     span {
         display: flex;
@@ -130,5 +130,59 @@
         padding: 20px 50px;
         border-radius: 15px;
         color: #fff;
+    }
+}
+
+@media (max-width: 953px) {
+    .sumAllProduct {
+        font-size: 24px;
+    }
+
+    .xzchto {
+
+        div:nth-of-type(1) {
+            font-size: 20px;
+        }
+    }
+
+    .buttonZakaz {
+
+
+        a {
+            padding: 20px 10%;
+        }
+    }
+
+    .delivery {
+        display: block;
+    }
+
+    .prod {
+        width: 90%;
+    }
+
+    .leftPiece {
+        width: 80%;
+    }
+}
+
+
+@media (max-width: 768px) {
+    .basketContainet {
+        display: block;
+    }
+
+    .leftPiece {
+        width: 100%;
+    }
+
+    .prod {
+        width: 100%;
+        
+    }
+
+    .rightPiece {
+        height: 50vh;
+        width: 100%;
     }
 }

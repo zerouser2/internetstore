@@ -9,3 +9,9 @@
 .container {
     color: #000000;
 }
+
+@media (max-width: 768px) {
+    .main {
+        display: block;
+    }
+}

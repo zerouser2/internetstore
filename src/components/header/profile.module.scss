@@ -13,47 +13,55 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    background-color: #ffd167;
+    background-color: #ffffff00;
     padding: 5px 40px 5px 10px;
     border-radius: 5px;
     cursor: pointer;
+    user-select: none;
 }
 
 .navs {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    bottom: -225px;
-    gap: 15px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffd167;
-    padding: 10px 0;
-    z-index: 2;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.4s ease-out;
 
-    a {
+    background-color: #ebe9e7;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.5s ease-out;
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    width: 250px;
+    z-index: 1;
+    border-radius: 0 0 5px 5px;
+    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.2);
+
+    a:not(:first-child) {
+        padding: 12px 16px;
+        text-decoration: none;
+        color: black;
+        display: block;
+        text-align: left;
+    }
+
+    a:hover:not(:first-child) {
+        background-color: #fafafa4b;
+        color: rgb(132, 151, 250);
+    }
+
+    a:nth-of-type(1) {
         display: flex;
         align-items: center;
         justify-content: center;
-        cursor: pointer;
-        background-color: #ffd167;
-        transition: all 0.2s ease-in;
-        width: 100%;
-        padding: 10px 0;
         text-decoration: none;
-        color: #474242;
+        color: black;
+        margin: 10px;
     }
 
-    a:hover {
-        background-color: #f1bb3d;
+    a:nth-of-type(1):hover {
+        color: rgb(132, 151, 250);
     }
 }
 
 .navs.active {
-    opacity: 1;
-    visibility: visible;
+    max-height: 500px; /* Настройте по необходимости */
+
 }
