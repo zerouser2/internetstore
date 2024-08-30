@@ -157,3 +157,19 @@
         width: 80%;
     }
 }
+
+@media (max-width: 578px) {
+    .profileBlock {
+        display: block;
+    }
+
+    .leftPiece {
+        width: 100%;
+        max-width: 1000px;
+        margin-bottom: 25px;
+    }
+
+    .rightPiece {
+        margin-left: 0;
+    }
+}
