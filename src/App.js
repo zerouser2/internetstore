@@ -54,6 +54,9 @@ function App() {
         </>
       ),
     },
+    {
+      basename: process.env.PUBLIC_URL || "/", // Установка базового пути
+    }
   ]);
 
   return (
