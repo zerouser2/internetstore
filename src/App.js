@@ -14,7 +14,7 @@ function App() {
   const router = createBrowserRouter(createRoutesFromElements(
     <>
       <Route path="/" element={<MixComponent />} />
-      <Route path="sigh" element={<Sign />} />
+      <Route path="sign" element={<Sign />} />
       <Route path="product/:id" element={
         <>
           <Header />
